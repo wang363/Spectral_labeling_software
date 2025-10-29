@@ -3,12 +3,19 @@
 ## 一、软件概述  
 这是一款基于 PyQt5 和 Matplotlib 开发的光谱数据处理工具，主要用于拉曼光谱数据的可视化、**手动**基线扣除、峰拟合（Voigt 拟合）及数据导出等操作。软件通过两个核心绘图区域（Spectra Plot 和 Voigt Plot）实现数据处理流程，适用于科研人员对拉曼光谱数据进行深入分析。  
 
-**下载地址：**  
+**下载地址：1**  
 通过网盘分享的文件：RamanLabeler
 链接: https://pan.baidu.com/s/1kHRw2KKZKXuoJJ74fnP1yg?pwd=ntei    
 提取码: ntei   
 --来自百度网盘超级会员v7的分享  
-![软件存储与依赖](https://gitee.com/cjlu-wzl/project_/raw/master/软件.png)  
+![软件存储与依赖](https://gitee.com/cjlu-wzl/project_/raw/master/软件.png) 
+
+**下载地址：2**  
+我用夸克网盘给你分享了「RamanNet_Labeler」，点击链接或复制整段内容，打开「夸克APP」即可获取。
+/~801738susu~:/
+链接：https://pan.quark.cn/s/9ae83680a1c4?pwd=B4S2
+提取码：B4S2
+
 ### 注意
 exe文件初次加载时较慢，请耐心等待，不要将exe文件进行移动，否则无法获取_internal文件夹中的依赖，建议通过创建快捷方式的形式打开
 
