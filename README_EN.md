@@ -108,10 +108,10 @@ Generate .spt format files (PyTorch tensor serialization), including:
 1. ![File import](https://gitee.com/cjlu-wzl/project_/raw/master/Project_Manual_label/文件导入.png)  
 - 'Open File' is used to import data into the "Spectra Plot" tab
 - 'Open File for Voigt Plot' is used to import data into the "Voigt Plot" tab
-1. ![Spectra Plot](https://gitee.com/cjlu-wzl/project_/raw/master/Project_Manual_label/Spectra_plot.png)
+2. ![Spectra Plot](https://gitee.com/cjlu-wzl/project_/raw/master/Project_Manual_label/Spectra_plot.png)
 - After manual baseline removal in the "Spectra Plot" interface, regardless of whether data is imported using 'Open File for Voigt Plot', "Voigt Plot" will automatically display the curve after baseline removal
-1. ![Voigt Plot](https://gitee.com/cjlu-wzl/project_/raw/master/Voigt_Plot_1.png) 
-2. ![Voigt Plot](https://gitee.com/cjlu-wzl/project_/raw/master/Voigt_Plot_2.png)
+3. ![Voigt Plot](https://gitee.com/cjlu-wzl/project_/raw/master/Voigt_Plot_1.png) 
+4. ![Voigt Plot](https://gitee.com/cjlu-wzl/project_/raw/master/Voigt_Plot_2.png)
 - Click the "Model Fitting" button to perform automatic Voigt fitting, and you can export various parameter information after fitting
 ```
 # Parameter information is as follows
@@ -124,5 +124,5 @@ data_to_export = pd.DataFrame({
                         'Fwhm': fwhm_col
                     })
 ```
-1. ![Data Generator](https://gitee.com/cjlu-wzl/project_/raw/master/Figure_5.png)
+5. ![Data Generator](https://gitee.com/cjlu-wzl/project_/raw/master/Figure_5.png)
 - After setting basic parameters, click "Start Generating" to generate four types of training spectral data.
