@@ -121,10 +121,11 @@ exe文件初次加载时较慢，请耐心等待，不要将exe文件进行移�
 # 参数信息如下
 data_to_export = pd.DataFrame({
                         'Raman Shift': raman_shift,
-                        '归一化强度': raw_intensity,
-                        '位置(pos)': pos_col,
-                        '振幅': amp_col,
-                        '半宽全高': fwhm_col
+                        'Norm Intensity': 归一化强度,
+                        'Voigt Intensity':Voigt 拟合数据,
+                        'Pos': 峰位,
+                        'Amp': 振幅,
+                        'Fwhm': 半宽全高
                     })
 ```
 5. ![Data Generator界面功能展示](https://gitee.com/cjlu-wzl/project_/raw/master/Figure_5.png)
