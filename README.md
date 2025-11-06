@@ -1,7 +1,7 @@
 # 光谱标记软件
 
 ## 一、软件概述  
-这是一款基于 PyQt5 和 Matplotlib 开发的光谱数据处理工具，主要用于拉曼光谱数据的可视化、**手动**基线扣除、峰拟合（Voigt 拟合）及数据导出等操作。软件通过两个核心绘图区域（Spectra Plot 和 Voigt Plot）实现数据处理流程，适用于科研人员对拉曼光谱数据进行深入分析。  
+这是一款基于 PyQt5 和 Matplotlib 开发的光谱数据处理工具，主要用于拉曼光谱数据的可视化、**手动**基线扣除、峰拟合（Voigt 拟合）及数据导出等操作。软件通过两个核心绘图区域（Spectra Plot 和 Voigt Plot）实现数据处理流程，并通过（Data Generator）实现合成光谱数据生成，适用于科研人员对拉曼光谱数据进行深入分析。  
 
 **下载地址：1**  
 通过网盘分享的文件：RamanLabeler
@@ -18,6 +18,8 @@
 
 ### 注意
 exe文件初次加载时较慢，请耐心等待，不要将exe文件进行移动，否则无法获取_internal文件夹中的依赖，建议通过创建快捷方式的形式打开
+
+---
 
 ## 二、核心功能模块
 
@@ -77,16 +79,34 @@ exe文件初次加载时较慢，请耐心等待，不要将exe文件进行移�
 3. 切换到Voigt Plot标签页，设置峰参数并执行手动或模型自动拟合
 4. 使用对应按钮导出所需数据结果
 
+---
 
+### 3. 合成数据生成模块（Data Generator 标签页）
+用于批量生成训练用光谱数据，支持自定义参数配置，满足深度学习数据需求：  
+**（1）参数配置**
+- **基础设置**:  
+  - 保存路径：设置生成数据的存储位置。
+  - 光谱数量：单次生成的光谱条数（默认 10 条）。
+  - 光谱长度：每条光谱的数据点数（默认 100，推荐≥1000）。
+- **峰参数设置**:  
+  - 最小 / 最大峰数量：分别≥1/≥2。
+  - 最小峰间距：默认 1 个数据点，推荐≥30 以避免峰重叠。
+  - FWHM 范围：1-100。
 
-## 依赖库
-#### 可自行运行Ui_main.py进行计算
-- PyQt5：GUI界面框架
-- Matplotlib：数据可视化
-- Pandas：数据处理
-- NumPy：数值计算
-- Torch：Voigt函数计算
-- SciPy：科学计算支持  
+**（2）数据生成与查看**
+- 配置完成后点击 “Start Generating” 启动，进度条实时显示生成状态。
+- 通过数据索引滑块浏览不同光谱，勾选对应数据类型复选框，可可视化峰位置标签、振幅标签、FWHM 标签。
+
+**（3）输出格式**
+生成 .spt 格式文件（PyTorch 张量序列化），包含：
+- X_ideal：理想光谱张量 [num_samples, data_length]
+- X_add_noise：添加噪声后的光谱
+- X_add_baseline：添加基线后的光谱
+- X_final_noise：类生物样本光谱
+- y_ideal：三通道参数标签 [num_samples, 3, data_length]
+
+---
+
 
 ##  界面部分展示
 1. ![文件导入功能](https://gitee.com/cjlu-wzl/project_/raw/master/Project_Manual_label/文件导入.png)  
@@ -107,4 +127,5 @@ data_to_export = pd.DataFrame({
                         '半宽全高': fwhm_col
                     })
 ```
-
+5. ![Data Generator界面功能展示](https://gitee.com/cjlu-wzl/project_/raw/master/Figure_5.png)
+- 设置基础参数后，点击 “Start Generating” 生成四类训练光谱数据。
