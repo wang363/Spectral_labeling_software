@@ -1,4 +1,4 @@
-# Spectral Labeling Software
+# RamanNet Labeler: A PyQt5-Based Raman Spectra Unmixing Tool via Physical Modeling for Generating Deep Learning Labels
 
 ## 1. Software Overview  
 This is a spectral data processing tool developed based on PyQt5 and Matplotlib, mainly used for visualization, **manual** baseline subtraction, peak fitting (Voigt fitting), and data export of Raman spectral data. The software implements the data processing workflow through two core plotting areas (Spectra Plot and Voigt Plot) and generates synthetic spectral data through (Data Generator), which is suitable for researchers to conduct in-depth analysis of Raman spectral data.
