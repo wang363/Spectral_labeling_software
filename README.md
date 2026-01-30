@@ -2,6 +2,36 @@
 
 ## 1. Software Overview  
 This is a spectral data processing tool developed based on PyQt5 and Matplotlib, mainly used for visualization, **manual** baseline subtraction, peak fitting (Voigt fitting), and data export of Raman spectral data. The software implements the data processing workflow through two core plotting areas (Spectra Plot and Voigt Plot) and generates synthetic spectral data through (Data Generator), which is suitable for researchers to conduct in-depth analysis of Raman spectral data.
+
+---
+
+### 1.1 Run from Source Code (Python Environment Required)
+The software is developed and tested under Python ≥ 3.8.The required dependencies can be installed using:
+```
+pip install -r requirements.txt
+```
+After installing dependencies, the GUI can be launched directly:
+```
+python Ui_main.py
+```
+This will start the full PyQt5 graphical interface with all functionalities enabled, including spectral visualization, baseline correction, Voigt fitting, and data generation.
+
+### 1.2 Build Executable from Source (Optional)
+Users can build a standalone executable using PyInstaller, which packages the Python interpreter and all dependencies.
+The provided RamanLabeler.spec file defines the packaging configuration, including:
+- Included Python modules
+- Required dynamic libraries
+- GUI entry point
+Advanced users may edit this file to customize the build process.
+To build the executable, simply run:
+```
+pyinstaller --clean RamanLabeler.spec
+```
+After successful compilation, the executable will be generated in the ```dist/``` directory.
+**⚠️ Note:** The first launch of the executable may take longer due to dependency initialization.
+
+### 1.3 Use Precompiled Executable (No Python Required)
+For users who do not wish to install Python or dependencies, a precompiled executable package is provided.
 **Download Link 1**  
 Link: https://pan.baidu.com/s/1kHRw2KKZKXuoJJ74fnP1yg?pwd=ntei    
 Extraction code: ntei   
@@ -18,7 +48,7 @@ The exe file loads slowly for the first time. Please wait patiently. Do not move
 
 ## 2. Core Function Modules
 
-### 1. Spectral Data Visualization and Baseline Processing (Spectra Plot Tab)
+### 2.1. Spectral Data Visualization and Baseline Processing (Spectra Plot Tab)
 Mainly used for display, baseline correction, and preprocessing of raw spectral data, supporting the following functions:
 
 #### （1）File Operations
@@ -49,10 +79,10 @@ Supports exporting various preprocessed data, including：
 
 ---
 
-### 2. Voigt Peak Fitting Analysis (Voigt Plot Tab)
+### 2.2. Voigt Peak Fitting Analysis (Voigt Plot Tab)
 Focus on spectral peak fitting analysis, supporting single-peak/multi-peak fitting based on the Voigt function, with functions including:
 
-#### （1）数据来源
+#### （1）Data Source
 - **Data Source**：Directly import CSV format data, which is automatically normalized for fitting.
 - **Data Transfer**：Can receive **baseline-corrected** data from Spectra Plot (automatically normalized), realizing the coherence of the data processing workflow.
 
@@ -76,7 +106,7 @@ Supports exporting Voigt fitting result data for subsequent analysis or report g
 
 ---
 
-### 3. Synthetic Data Generation Module (Data Generator Tab)
+### 2.3. Synthetic Data Generation Module (Data Generator Tab)
 Used for batch generation of spectral data for training, supporting custom parameter configuration to meet deep learning data needs: 
 **（1）Parameter Configuration**
 - **Basic Settings**:  
@@ -104,7 +134,7 @@ Generate .spt format files (PyTorch tensor serialization), including:
 ---
 
 
-##  Partial Interface Display
+##  3.Partial Interface Display
 1. ![File import](https://gitee.com/cjlu-wzl/project_/raw/master/Project_Manual_label/文件导入.png)  
 - 'Open File' is used to import data into the "Spectra Plot" tab
 - 'Open File for Voigt Plot' is used to import data into the "Voigt Plot" tab
