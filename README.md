@@ -49,7 +49,12 @@ The exe file loads slowly for the first time. Please wait patiently. Do not move
 ## 2. Quick Start
 Follow these **4 steps** to process your first Raman spectrum using the provided demo data:
 1. **Load Data**: Go to `File` -> `Open File` and select a sample spectrum from the `demo_data/` folder (e.g., `sample_raw_data.csv`).
-2. **Baseline Subtraction**: In the **Spectra Plot** tab, click 3-5 points on the bottom of the spectrum to define the baseline. Click the **"Subtract Baseline"** button to obtain the cleaned signal.
+2. **Baseline Subtraction**: In the **Spectra Plot** tab, click 3-5 points on the bottom of the spectrum to define the baseline. Click the **"Apply Baseline Subtraction"** button to obtain the cleaned signal.
+![Spectra Plot](pic/Spectra_Plot.png)
+
+3. **Automatic Fitting**: Switch to the **Voigt Plot** tab and click the **"Model Fit"** button. The built-in AI model will automatically identify peaks and generate Voigt parameters.
+![Voigt Plot](pic/Voigt_Plot.png)
+4. **Export Labels**: Click **"Export Voigt Fit Data"** to save the results. The output CSV includes the optimized peak positions, amplitudes, and FWHM values, ready for deep learning training.
 
 ## 3. Core Function Modules
 
@@ -103,7 +108,7 @@ Fitting parameters are visually managed through a table (TableView), supporting 
 Supports exporting Voigt fitting result data for subsequent analysis or report generation. The export includes fitting data of Raman shift, normalized intensity, peak position, amplitude, and full width at half maximum.
 
 
-## Brief Usage Process
+### Brief Usage Process
 1. Import spectral data through the top "File" menu
 2. Complete baseline marking and subtraction in the Spectra Plot tab
 3. Switch to the Voigt Plot tab, set peak parameters and perform manual or model automatic fitting
