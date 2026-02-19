@@ -46,9 +46,14 @@ The exe file loads slowly for the first time. Please wait patiently. Do not move
 
 ---
 
-## 2. Core Function Modules
+## 2. Quick Start
+Follow these **4 steps** to process your first Raman spectrum using the provided demo data:
+1. **Load Data**: Go to `File` -> `Open File` and select a sample spectrum from the `demo_data/` folder (e.g., `sample_raw_data.csv`).
+2. **Baseline Subtraction**: In the **Spectra Plot** tab, click 3-5 points on the bottom of the spectrum to define the baseline. Click the **"Subtract Baseline"** button to obtain the cleaned signal.
 
-### 2.1. Spectral Data Visualization and Baseline Processing (Spectra Plot Tab)
+## 3. Core Function Modules
+
+### 3.1. Spectral Data Visualization and Baseline Processing (Spectra Plot Tab)
 Mainly used for display, baseline correction, and preprocessing of raw spectral data, supporting the following functions:
 
 #### （1）File Operations
@@ -79,7 +84,7 @@ Supports exporting various preprocessed data, including：
 
 ---
 
-### 2.2. Voigt Peak Fitting Analysis (Voigt Plot Tab)
+### 3.2. Voigt Peak Fitting Analysis (Voigt Plot Tab)
 Focus on spectral peak fitting analysis, supporting single-peak/multi-peak fitting based on the Voigt function, with functions including:
 
 #### （1）Data Source
@@ -106,7 +111,7 @@ Supports exporting Voigt fitting result data for subsequent analysis or report g
 
 ---
 
-### 2.3. Synthetic Data Generation Module (Data Generator Tab)
+### 3.3. Synthetic Data Generation Module (Data Generator Tab)
 Used for batch generation of spectral data for training, supporting custom parameter configuration to meet deep learning data needs: 
 **（1）Parameter Configuration**
 - **Basic Settings**:  
@@ -134,7 +139,7 @@ Generate .spt format files (PyTorch tensor serialization), including:
 ---
 
 
-##  3.Partial Interface Display
+##  4.Partial Interface Display
 1. ![File import](https://gitee.com/cjlu-wzl/project_/raw/master/Project_Manual_label/文件导入.png)  
 - 'Open File' is used to import data into the "Spectra Plot" tab
 - 'Open File for Voigt Plot' is used to import data into the "Voigt Plot" tab
