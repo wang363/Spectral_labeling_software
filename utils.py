@@ -192,8 +192,40 @@ def nor_max(arrlist, thread):
     arr_norm[arr_norm<thread] = 0
     return arr_norm
 
+# 读取csv数据
 def read_model_data(start, end, path):
-    data = pd.read_csv(path, header=None)
+    # data = pd.read_csv(path, header=None)
+    # 如果csv有表头，使用 header=0；如果没有表头，使用 header=None
+    # 校验文件是否存在
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"文件不存在：{path}")
+    
+    # 读取第一行内容并处理空值
+    with open(path, 'r', encoding='utf-8') as f:
+        first_line = f.readline().strip()
+        # 处理空行/全空格的情况
+        if not first_line:
+            raise ValueError("CSV文件第一行为空，无法判断表头")
+        first_line = first_line.split(',')
+    
+    # 更严谨的表头判断逻辑：第一行所有单元格是否都是非数字（更符合实际业务场景）
+    # 若第一行任意一个单元格无法转为数字，则判定为有表头
+    has_header = False
+    for cell in first_line:
+        cell = cell.strip()  # 去除单元格前后空格
+        if not cell:  # 跳过空单元格
+            continue
+        try:
+            float(cell)
+        except ValueError:
+            has_header = True
+            break  # 只要有一个非数字，就判定为有表头
+    
+    # 设置header参数
+    header_option = 0 if has_header else None
+    # 读取数据
+    data = pd.read_csv(path, header=header_option)
+
     Raman_Shift = data.iloc[:,0].values
     Intensity = data.iloc[:,1].values
     idx_start = np.argmin(np.abs(Raman_Shift - start))
